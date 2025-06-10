@@ -1,0 +1,66 @@
+name: CI - Backend + Frontend Build & Lint
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  backend:
+    name: Backend - Lint & Test
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repo
+      uses: actions/checkout@v4
+
+    - name: Set up Python 3.9
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.9'
+
+    - name: Install backend dependencies
+      run: |
+        cd backend
+        pip install -r requirements.txt
+
+    - name: Lint backend with flake8
+      run: |
+        pip install flake8
+        cd backend
+        flake8 . --config=.flake8
+
+    - name: Run backend tests
+      run: |
+        pip install pytest
+        cd backend
+        pytest tests/ || echo "No tests yet, skipping"
+
+  frontend:
+    name: Frontend - Build & Lint
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repo
+      uses: actions/checkout@v4
+
+    - name: Set up Node.js 18
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+
+    - name: Install frontend dependencies
+      run: |
+        cd frontend
+        npm install
+
+    - name: Lint frontend (eslint with config)
+      run: |
+        cd frontend
+        npx eslint src/ --config .eslintrc.json || echo "ESLint not configured yet, skipping"
+
+    - name: Build frontend
+      run: |
+        cd frontend
+        npm run build

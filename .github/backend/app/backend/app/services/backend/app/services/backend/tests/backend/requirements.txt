@@ -1,0 +1,12 @@
+fastapi
+uvicorn
+paddleocr
+paddlepaddle
+PyMuPDF
+sentence-transformers
+qdrant-client
+openai
+python-multipart
+numpy
+flake8
+pytest

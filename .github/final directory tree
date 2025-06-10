@@ -1,0 +1,28 @@
+Wasserstoff-AI-Internship-Final-Starter/
+├── backend/
+│   ├── app/
+│   │   ├── main.py
+│   │   ├── config.py
+│   │   └── services/
+│   │       ├── ingestion_pipeline.py
+│   │       ├── query_engine.py
+│   ├── data/
+│   │   └── .gitkeep
+│   ├── tests/
+│   │   ├── test_health.py
+│   ├── requirements.txt
+│   ├── Dockerfile
+│   ├── .flake8
+├── frontend/
+│   ├── src/
+│   │   ├── App.js
+│   │   ├── index.js
+│   ├── .eslintrc.json
+│   ├── package.json
+├── .github/
+│   ├── workflows/
+│   │   ├── ci.yml
+│   ├── pull_request_template.md
+├── demo/
+│   └── (empty — add screenshots or demo video link if needed)
+├── README.md

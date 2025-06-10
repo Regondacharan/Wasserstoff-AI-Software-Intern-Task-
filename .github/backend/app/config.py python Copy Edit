@@ -1,0 +1,3 @@
+# Config placeholder
+VECTOR_DB_HOST = "localhost"
+VECTOR_DB_PORT = 6333
